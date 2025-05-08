@@ -65,3 +65,19 @@ btn.addEventListener("click", (evt) => {
 window.addEventListener("load", () => {
   updateExchangeRate();
 });
+
+const swapIcon = document.querySelector(".dropdown i");
+
+swapIcon.addEventListener("click", () => {
+  // Swap selected currency codes
+  let temp = fromCurr.value;
+  fromCurr.value = toCurr.value;
+  toCurr.value = temp;
+
+  // Update flags after swap
+  updateFlag(fromCurr);
+  updateFlag(toCurr);
+
+  // Update exchange rate message
+  updateExchangeRate();
+});
